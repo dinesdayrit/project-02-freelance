@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MainNav = () => {
-  const menuStyles = "px-3 py-2 text-xs md:text-base text-white text-left hover:underline-yellow-200 hover:border-b-2 hover:border-yellow-200";
+  const [scrollDown, setScrollDown] = useState(false);
+  const menuStyles = "px-3 py-2 text-xs font-bold md:text-base text-black text-left hover:text-orange-500";
+  const navStyles = scrollDown ? "" : "fixed z-10 py-4 w-full border-gray-400 border-b";
 
   const smoothScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
     event.preventDefault();
@@ -14,25 +16,35 @@ const MainNav = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrollDown(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-gray-800 py-4">
+    <nav className={navStyles}>
       <div className="flex justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-white font-bold">LOGO HERE</h1>
-        <div className="flex justify-between">
-          <div className="flex space-x-4">
-            <a href="#home" className={menuStyles} onClick={(e) => smoothScroll(e, 'home')}>
-              Home
-            </a>
-            <a href="#about" className={menuStyles} onClick={(e) => smoothScroll(e, 'about')}>
-              About
-            </a>
-            <a href="#products" className={menuStyles} onClick={(e) => smoothScroll(e, 'products')}>
-              Products
-            </a>
-            <a href="#contact" className={menuStyles} onClick={(e) => smoothScroll(e, 'contact')}>
-              Contact
-            </a>
-          </div>
+        <h1 className="text-black font-bold">LOGO HERE</h1>
+        <div className="flex justify-end space-x-4">
+          <a href="#home" className={menuStyles} onClick={(e) => smoothScroll(e, 'home')}>
+            Home
+          </a>
+          <a href="#about" className={menuStyles} onClick={(e) => smoothScroll(e, 'about')}>
+            About
+          </a>
+          <a href="#products" className={menuStyles} onClick={(e) => smoothScroll(e, 'products')}>
+            Products
+          </a>
+          <a href="#contact" className={menuStyles} onClick={(e) => smoothScroll(e, 'contact')}>
+            Contact
+          </a>
         </div>
       </div>
     </nav>
