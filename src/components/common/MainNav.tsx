@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 
 const MainNav = () => {
@@ -64,16 +64,16 @@ const MainNav = () => {
       </div> 
 
       <div className={`md:p-8 flex flex-col md:block w-1.5 md:w-auto md:ml-auto mr-16 ${isMenuOpen ? '' : 'hidden'}`} id="navbar-default">
-        <Link to="home" className={menuStyles} spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
+        <Link to="home" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
           Home
         </Link>
-        <Link to="about" className={menuStyles} spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
+        <Link to="about" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
           About
         </Link>
-        <Link to="products" className={menuStyles} spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
+        <Link to="products" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
           Products
         </Link>
-        <Link to="contact" className={menuStyles} spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
+        <Link to="contact" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
           Contact
         </Link>
       </div>
