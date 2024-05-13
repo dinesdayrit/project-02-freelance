@@ -10,17 +10,23 @@ const MainNav = () => {
     `px-3 py-2 text-xs font-bold md:text-base text-white text-left hover:text-orange-500` :
     `px-3 py-2 text-xs font-bold md:text-base text-left hover:text-orange-500 ${menuTextColor}`;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setScrollDown(isScrolled);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    useEffect(() => {
+      function handleScroll() {
+        // Check if the user has scrolled beyond a certain threshold
+        if (window.scrollY > 100) { 
+          setScrollDown(true);
+        } else {
+          setScrollDown(false);
+        }
+      }
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      // Clean up the event listener when component unmounts
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
 
   useEffect(() => {
     // Change text color to white when menu is open on small screens
