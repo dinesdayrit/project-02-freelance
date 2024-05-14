@@ -1,4 +1,7 @@
 import React, { useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import "tailwindcss/tailwind.css";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -30,19 +33,33 @@ const Contact = () => {
       <div className="max-w-sm mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Contact Us</h1>
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <div className="mb-4">
+          <div className="mb-2">
             <h2 className="text-lg font-medium text-gray-700">Email</h2>
-            <p className="text-gray-600">contact@example.com</p>
+            <p className="text-gray-600">consult@spancept.com</p>
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <h2 className="text-lg font-medium text-gray-700">Phone</h2>
-            <p className="text-gray-600">+1234567890</p>
+            <p className="text-gray-600">+1 587-331-9288</p>
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
+            <h2 className="text-lg font-medium text-gray-700">Location</h2>
+            <p className="text-gray-600">Calgary, AB, Canada, Alberta</p>
+          </div>
+          <div className="mb-2">
             <h2 className="text-lg font-medium text-gray-700">Social Media</h2>
-            {/* Add social media links here */}
+            <div className="flex space-x-2">
+              <a href="https://www.facebook.com/spancept" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800">
+                <FontAwesomeIcon icon={faFacebook} size="2x" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800">
+                <FontAwesomeIcon icon={faTwitter} size="2x" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800">
+                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+              </a>
+            </div>
           </div>
-          <div className="mt-8">
+          <div>
             <h2 className="text-lg font-medium text-gray-700">Subscribe to our Newsletter</h2>
             <form ref={formRef} name="submit-to-google-sheet" onSubmit={handleSubmit} className="mt-4">
               <input
