@@ -2,7 +2,7 @@ const Products = () => {
   return (
     <div className="bg-gray-700 py-12 px-4 sm:px-6 lg:px-8" id="products">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-100 mb-4">Products</h1>
+        <h1 className="text-3xl font-bold text-gray-100 mb-4">Sample Products</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Product 1 */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
