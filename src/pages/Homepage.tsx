@@ -4,6 +4,7 @@ import Contact from "@/components/homepage/Contact";
 import Footer from "@/components/homepage/Footer";
 import Hero from "@/components/homepage/Hero";
 import Products from "@/components/homepage/Products";
+import Stores from "@/components/homepage/Stores";
 
 
 const Homepage = () => {
@@ -12,6 +13,7 @@ const Homepage = () => {
         <MainNav />
         <Hero />
         <About />
+        <Stores />
         <Products />
         <Contact />
         <Footer />

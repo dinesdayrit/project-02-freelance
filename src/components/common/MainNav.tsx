@@ -77,6 +77,9 @@ const MainNav = () => {
           About
         </Link>
         <Link to="products" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
+          Stores
+        </Link>
+        <Link to="products" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
           Products
         </Link>
         <Link to="contact" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
