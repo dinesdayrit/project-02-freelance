@@ -1,17 +1,28 @@
-import { useState, FormEvent } from 'react';
+import React, { useRef, useState } from 'react';
 
-const Contact: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
+const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [message, setMessage] = useState<string>('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw2ZsedW0XdKpGT4Su48P1iZL42uqSh0bLGSS7FLP_nzhD91ydCbSN68D6w-yaX6oZcXA/exec';
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here, you would typically handle the form submission,
-    // such as sending the email to a server or API.
-    // For demonstration, we'll just log the email.
-    console.log('Submitted email:', email);
-    setMessage('Thank you for subscribing!');
-    setEmail('');
+    if (formRef.current) {
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(formRef.current),
+      })
+        .then((response) => {
+          console.log('Success!', response);
+          setMessage('Thank you for subscribing!');
+          formRef.current?.reset();
+        })
+        .catch((error) => {
+          console.error('Error!', error.message);
+          setMessage('Something went wrong. Please try again.');
+        });
+    }
   };
 
   return (
@@ -33,11 +44,10 @@ const Contact: React.FC = () => {
           </div>
           <div className="mt-8">
             <h2 className="text-lg font-medium text-gray-700">Subscribe to our Newsletter</h2>
-            <form onSubmit={handleSubmit} className="mt-4">
+            <form ref={formRef} name="submit-to-google-sheet" onSubmit={handleSubmit} className="mt-4">
               <input
+                name="email"
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
