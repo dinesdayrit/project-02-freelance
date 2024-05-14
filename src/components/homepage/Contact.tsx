@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8" id="contact">
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-sm mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Contact Us</h1>
         <div className="bg-white rounded-lg shadow-lg p-6">
           <div className="mb-4">
