@@ -43,8 +43,8 @@ const MainNav = () => {
 
   return (
     <nav className={`items-center md:flex fixed top-0 w-full z-50 ${scrollDown ? 'bg-sky-900' : ''} ${isMenuOpen ? 'bg-sky-900' : ''}`}>
-      <div className="flex items-center justify-between md:justify-end lg:justify-end w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-orange-500 text-xl font-bold md:hidden lg:hidden">Spancept</h1>
+      <div className="flex items-center justify-between w-full mx-auto px-4 sm:px-6 lg:px-32">
+        <h1 className={`text-orange-500 text-xl font-bold ${scrollDown ? '' : 'hidden'}`}>Spancept</h1>
 
         <div className="md:hidden ml-auto">
           <button 
@@ -76,7 +76,7 @@ const MainNav = () => {
         <Link to="about" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
           About
         </Link>
-        <Link to="products" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
+        <Link to="stores" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
           Stores
         </Link>
         <Link to="products" className={menuStyles} activeClass="activeLink" spy={true} offset={-100} smooth={true} duration={500} onClick={toggleMenu}>
