@@ -1,17 +1,19 @@
 import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import "tailwindcss/tailwind.css";
+
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [message, setMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbw2ZsedW0XdKpGT4Su48P1iZL42uqSh0bLGSS7FLP_nzhD91ydCbSN68D6w-yaX6oZcXA/exec';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formRef.current) {
+      setLoading(true);
       fetch(scriptURL, {
         method: 'POST',
         body: new FormData(formRef.current),
@@ -24,6 +26,9 @@ const Contact = () => {
         .catch((error) => {
           console.error('Error!', error.message);
           setMessage('Something went wrong. Please try again.');
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   };
@@ -71,9 +76,16 @@ const Contact = () => {
               />
               <button
                 type="submit"
-                className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className={`w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${loading ? 'cursor-not-allowed' : ''}`}
+                disabled={loading}
               >
-                Subscribe
+                {loading ? (
+                  <div className="flex flex-col items-center justify-center space-y-4">
+                    <div className="h-6 w-6 animate-spin rounded-full border-4 border-gray-300 border-t-gray-900 dark:border-gray-600 dark:border-t-gray-400" />
+                  </div>
+                ) : (
+                  'Subscribe'
+                )}
               </button>
               {message && <p className="mt-4 text-green-500">{message}</p>}
             </form>
