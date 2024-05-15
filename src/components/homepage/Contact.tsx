@@ -34,38 +34,38 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8" id="contact">
+    <div className="bg-sky-900 py-12 px-4 sm:px-6 lg:px-8" id="contact">
       <div className="max-w-sm mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Contact Us</h1>
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <div className="mb-2">
-            <h2 className="text-lg font-medium text-gray-700">Email</h2>
-            <p className="text-gray-600">consult@spancept.com</p>
+        <h1 className="text-3xl font-bold text-gray-100 mb-4">Contact Us</h1>
+        <div className="bg-sky-700 rounded-lg shadow-lg p-6">
+          <div className="mb-4">
+            <h2 className="text-lg font-medium text-gray-100">Email</h2>
+            <p className="text-gray-100">consult@spancept.com</p>
           </div>
-          <div className="mb-2">
-            <h2 className="text-lg font-medium text-gray-700">Phone</h2>
-            <p className="text-gray-600">+1 587-331-9288</p>
+          <div className="mb-4">
+            <h2 className="text-lg font-medium text-gray-100">Phone</h2>
+            <p className="text-gray-100">+1 587-331-9288</p>
           </div>
-          <div className="mb-2">
-            <h2 className="text-lg font-medium text-gray-700">Location</h2>
-            <p className="text-gray-600">Calgary, AB, Canada, Alberta</p>
+          <div className="mb-4">
+            <h2 className="text-lg font-medium text-gray-100">Location</h2>
+            <p className="text-gray-100">Calgary, AB, Canada, Alberta</p>
           </div>
-          <div className="mb-2">
-            <h2 className="text-lg font-medium text-gray-700">Social Media</h2>
+          <div className="mb-8">
+            <h2 className="text-lg font-medium text-gray-100 mb-2">Social Media</h2>
             <div className="flex space-x-2">
-              <a href="https://www.facebook.com/spancept" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800">
+              <a href="https://www.facebook.com/spancept" target="_blank" rel="noopener noreferrer" className="text-gray-100 hover:text-gray-300">
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-100 hover:text-gray-300">
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-100 hover:text-gray-300">
                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
               </a>
             </div>
           </div>
           <div>
-            <h2 className="text-lg font-medium text-gray-700">Subscribe to our Newsletter</h2>
+            <h2 className="text-lg font-medium text-orange-500">Subscribe to our Newsletter</h2>
             <form ref={formRef} name="submit-to-google-sheet" onSubmit={handleSubmit} className="mt-4">
               <input
                 name="email"
@@ -76,7 +76,7 @@ const Contact = () => {
               />
               <button
                 type="submit"
-                className={`w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${loading ? 'cursor-not-allowed' : ''}`}
+                className={`w-full bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 ${loading ? 'cursor-not-allowed' : ''}`}
                 disabled={loading}
               >
                 {loading ? (

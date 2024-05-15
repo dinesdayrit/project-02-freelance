@@ -3,7 +3,6 @@ import About from "@/components/homepage/About";
 import Contact from "@/components/homepage/Contact";
 import Footer from "@/components/homepage/Footer";
 import Hero from "@/components/homepage/Hero";
-import Products from "@/components/homepage/Products";
 import Stores from "@/components/homepage/Stores";
 
 
@@ -14,7 +13,6 @@ const Homepage = () => {
         <Hero />
         <About />
         <Stores />
-        <Products />
         <Contact />
         <Footer />
     </div>
